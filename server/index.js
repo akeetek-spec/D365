@@ -19,7 +19,15 @@ const { handle } = require("../api/src/lib/handler");
 const WEB = path.join(ROOT, "web");
 const swaConfig = JSON.parse(fs.readFileSync(path.join(WEB, "staticwebapp.config.json"), "utf8"));
 const problems = startupProblems();
-const { db, label: storeLabel } = openStore();
+let db = null,
+  storeLabel = "";
+try {
+  ({ db, label: storeLabel } = openStore());
+} catch (e) {
+  problems.push(`The data store couldn't be opened: ${e.message}`);
+}
+// Set when the database can't be reached at start-up; the app keeps running and retries.
+let dataProblem = "";
 const TYPES = {
   ".html": "text/html; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
@@ -69,7 +77,7 @@ function setupPage(res) {
     503,
     `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Setup needed</title><link rel="stylesheet" href="/styles.css"></head>
 <body style="padding:48px 16px"><div style="max-width:620px;margin:auto"><h2>D365 Licence Check: setup needed</h2>
-<p>The app isn't running yet because these settings need attention:</p><ul>${problems.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+<p>The app isn't running yet because these need attention:</p><ul>${[...problems, ...(dataProblem ? [dataProblem] : [])].map(p => `<li>${esc(p)}</li>`).join("")}</ul>
 <p class="muted">Fix them in apphosting.yaml (or local.env on your PC) and deploy again. See README, "Firebase App Hosting".</p></div></body></html>`,
     { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" }
   );
@@ -138,7 +146,7 @@ function staticFile(req, res, url) {
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, "http://localhost");
   try {
-    if (problems.length && url.pathname !== "/styles.css") return setupPage(res);
+    if ((problems.length || dataProblem) && url.pathname !== "/styles.css") return setupPage(res);
     if (url.pathname.startsWith("/.auth/")) {
       const out = await handleAuth(req, url, readBody);
       return send(res, out.status, out.body, out.headers);
@@ -154,26 +162,53 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-(async () => {
-  if (problems.length) {
-    console.error("Setup needed:\n  - " + problems.join("\n  - "));
-    return listen();
+// Start listening straight away (the cloud health check waits for this), then prepare the data.
+listen();
+if (problems.length) console.error("Setup needed:\n  - " + problems.join("\n  - "));
+else prepareData();
+
+// Explains a database error in plain words.
+function describeDataError(e) {
+  const name = process.env.FIRESTORE_DATABASE || "(default)";
+  const project = process.env.GOOGLE_CLOUD_PROJECT || process.env.GCLOUD_PROJECT || "this project";
+  if (e.code === 5 || /NOT_FOUND|does not exist/i.test(e.message))
+    return `The Firestore database "${name}" doesn't exist in ${project}. Create it in Firebase console > Firestore Database > Create database (Database ID: ${name}).`;
+  if (e.code === 7 || /PERMISSION_DENIED/i.test(e.message))
+    return `The app isn't allowed to use Firestore. In Google Cloud console > IAM, give firebase-app-hosting-compute@<project-id>.iam.gserviceaccount.com the role "Cloud Datastore User".`;
+  if (e.code === 4 || /DEADLINE|timed out/i.test(e.message))
+    return `Firestore didn't answer in time (${e.message}). The app will keep trying.`;
+  return `The database couldn't be reached: ${e.message}`;
+}
+
+// Adds anyone from the roster files who isn't in the data yet (existing people are not changed).
+// If the database can't be reached, shows why on every page and tries again every minute.
+async function prepareData() {
+  try {
+    if (process.env.SEED_ROSTER !== "false") {
+      const added = await Promise.race([
+        addMissing(db, rosterFiles()),
+        new Promise((_, bad) =>
+          setTimeout(
+            () => bad(Object.assign(new Error("timed out after 30 seconds"), { code: 4 })),
+            30e3
+          )
+        )
+      ]);
+      if (added.length)
+        console.log(
+          `Added ${added.length} people from ${rosterFiles()
+            .map(f => path.relative(ROOT, f))
+            .join(", ")}${added.length <= 5 ? `: ${added.join(", ")}` : ""}.`
+        );
+    }
+    if (dataProblem) console.log("Database reachable again.");
+    dataProblem = "";
+  } catch (e) {
+    dataProblem = describeDataError(e);
+    console.error(`Database problem: ${dataProblem}\n${e.stack || e}`);
+    setTimeout(prepareData, 60e3);
   }
-  // Add anyone from the roster files who isn't in the data yet (existing people are not changed).
-  if (process.env.SEED_ROSTER !== "false") {
-    const added = await addMissing(db, rosterFiles());
-    if (added.length)
-      console.log(
-        `Added ${added.length} people from ${rosterFiles()
-          .map(f => path.relative(ROOT, f))
-          .join(", ")}${added.length <= 5 ? `: ${added.join(", ")}` : ""}.`
-      );
-  }
-  listen();
-})().catch(e => {
-  console.error(e);
-  process.exit(1);
-});
+}
 
 function listen() {
   server.listen(Number(process.env.PORT), process.env.HOST, () => {
