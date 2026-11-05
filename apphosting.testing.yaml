@@ -27,6 +27,10 @@ env:
   - variable: SIGN_IN
     value: test
     availability: [RUNTIME]
+  # Firebase console > Project settings (gear) > General > "Web API key".
+  - variable: FIREBASE_API_KEY
+    value: AIzaSyDptS_naDVWNxz4wxaGAPYD-v-tB_CWNxY
+    availability: [RUNTIME]
   - variable: ALLOW_TEST_SIGNIN
     value: "true"
     availability: [RUNTIME]

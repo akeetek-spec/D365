@@ -17,7 +17,7 @@ scripts:
 env:
   # The production address, exactly as people open it (no slash at the end). Goes into every email link.
   - variable: APP_URL
-    value: https://<prod-backend-id>--<project-id>.<region>.hosted.app
+    value: https://d365--excel-292de.us-east4.hosted.app
     availability: [RUNTIME]
 
   # Dashboard sign-in: email + password accounts made in Firebase console > Authentication > Users.
@@ -26,7 +26,7 @@ env:
     availability: [RUNTIME]
   # Firebase console > Project settings (gear) > General > "Web API key".
   - variable: FIREBASE_API_KEY
-    value: <web-api-key>
+    value: AIzaSyDptS_naDVWNxz4wxaGAPYD-v-tB_CWNxY
     availability: [RUNTIME]
   # Keeps people signed in for 8 hours. Secret: any random text of 32+ characters.
   - variable: SESSION_SECRET
