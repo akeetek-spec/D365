@@ -14,7 +14,7 @@ runConfig:
 env:
   # The testing backend's own address.
   - variable: APP_URL
-    value: https://<test-backend-id>--<project-id>.<region>.hosted.app
+    value: https://d365--excel-292de.us-east4.hosted.app
     availability: [RUNTIME]
 
   # Separate database. Create it first: Firebase console > Firestore Database > Create database, ID "test".
