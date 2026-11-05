@@ -1,0 +1,19 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "STORAGE_CONNECTION": "UseDevelopmentStorage=true",
+    "APP_URL": "http://localhost:4280",
+    "IT_DIRECTOR_EMAIL": "andres.santana@championchair.com",
+    "MAIL_MODE": "outbox",
+    "MAIL_SENDER": "d365-licences@championchair.com",
+    "GRAPH_TENANT_ID": "",
+    "GRAPH_CLIENT_ID": "",
+    "GRAPH_CLIENT_SECRET": "",
+    "ROLE_ITDIRECTOR": "andres.santana@championchair.com",
+    "ROLE_ITADMIN": "jennifer.derby@championchair.com",
+    "ROLE_LEADERSHIP": "",
+    "LINK_DAYS": "30"
+  }
+}

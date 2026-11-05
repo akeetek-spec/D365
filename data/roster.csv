@@ -1,0 +1,38 @@
+id,email,current,required,jobTitle,supervisorName,managerEmail,managerEmailStatus
+rivelyn-yip,Rivelyn.Yip@ChampionChair.com,Supply Chain Management,Commerce|Finance|Supply Chain Management,Production Planner,Vincent Bonomo,Vincent.Bonomo@ChampionChair.com,derived
+bryce-kriner,Bryce.Kriner@ChampionChair.com,Supply Chain Management,Commerce|Supply Chain Management,Buyer,Amy Hart,Amy.Hart@championchair.com,roster
+christine-ksicellus,Christine.Ksicellus@ChampionChair.com,Supply Chain Management,Commerce|Supply Chain Management,Logistics Coordinator,Omar Nunez,Omar.Nunez@ChampionChair.com,derived
+jared-canipe,Jared.Canipe@ChampionChair.com,Finance,Finance|Supply Chain Management,T-Series Product Applications Specialist,Jennifer Turner,Jennifer.Turner@ChampionChair.com,roster
+jay-artil,Jay.Artil@ChampionChair.com,Supply Chain Management,Finance|Supply Chain Management,D365 Consultant,Wendell Raddatz,Wendell.Raddatz@ChampionChair.com,derived
+rich-willenbrink,Rich.Willenbrink@ChampionChair.com,Supply Chain Management,Finance|Supply Chain Management,Sr. Quality Engineer,Paul McAllister,Paul.McAllister@ChampionChair.com,roster
+jordan-petroski,Jordan.Petroski@ChampionChair.com,Finance,Finance|Supply Chain Management,Inside Sales Representative,Angela Ness,Angela.Ness@ChampionChair.com,derived
+jennifer-turner,Jennifer.Turner@ChampionChair.com,Finance,Finance|Supply Chain Management,Director of Customer Experience,Wendell Raddatz,Wendell.Raddatz@ChampionChair.com,derived
+jim-true,Jim.True@ChampionChair.com,Finance,Finance|Supply Chain Management,Consultant,Wendell Raddatz,Wendell.Raddatz@ChampionChair.com,derived
+natalie-hesson,Natalie.Hesson@ChampionChair.com,Finance,Finance|Supply Chain Management,Order Entry Specialist,Jared Canipe,Jared.Canipe@ChampionChair.com,roster
+brianna-ziotecki,Brianna.Ziotecki@ChampionChair.com,Finance,Finance|Supply Chain Management,Home Patient Operations Specialist,Jennifer Turner,Jennifer.Turner@ChampionChair.com,roster
+angela-redet,Angela.Redet@ChampionChair.com,Finance,Finance|Supply Chain Management,Product Support and Complaint Handling Supervisor,Jennifer Turner,Jennifer.Turner@ChampionChair.com,roster
+melissa-hirth,Melissa.Hirth@ChampionChair.com,Finance,Finance|Supply Chain Management,VP Strategic Partnerships and OEM Solutions,Thomas O'Neill,Thomas.ONeill@ChampionChair.com,derived
+william-rudan,William.Rudan@ChampionChair.com,Supply Chain Management,Project Operations|Supply Chain Management,Manufacturing Engineer,Brad Mikals,Brad.Mikals@ChampionChair.com,derived
+iain-burton,Iain.Burton@ChampionChair.com,Supply Chain Management,Project Operations|Supply Chain Management,Manufacturing Engineer,Brad Mikals,Brad.Mikals@ChampionChair.com,derived
+tyson-helmke,Tyson.Helmke@ChampionChair.com,Supply Chain Management,Project Operations|Supply Chain Management,Lead Engineer,Brad Mikals,Brad.Mikals@ChampionChair.com,derived
+dmyers,DMyers@championchair.com,Supply Chain Management,Project Operations|Supply Chain Management,Senior Engineering Technician,Brad Mikals,Brad.Mikals@ChampionChair.com,derived
+franklin-perez,Franklin.Perez@ChampionChair.com,Operations - Activity,Supply Chain Management,Team Lead,William Glennon,William.Glennon@ChampionChair.com,derived
+service-cell,Service.Cell@ChampionChair.com,Supply Chain Management,Finance|Project Operations|Supply Chain Management,Service cell operations (shared acct),,,none
+collin-jacobs,Collin.Jacobs@ChampionChair.com,Finance,Finance|Supply Chain Management,Regional Sales Manager,Angela Ness,Angela.Ness@ChampionChair.com,derived
+deshna-parekh,Deshna.Parekh@ChampionChair.com,Finance,Finance|Project Operations|Supply Chain Management,Accountant,Katie White,Katie.White@ChampionChair.com,derived
+janicia-mcbride,Janicia.McBride@ChampionChair.com,Finance,Finance|Supply Chain Management,Order Entry Specialist,Jennifer Turner,Jennifer.Turner@ChampionChair.com,roster
+paul-mcallister,Paul.McAllister@ChampionChair.com,Supply Chain Management,Finance|Supply Chain Management,Chief Operating Officer,Thomas O'Neill,Thomas.ONeill@ChampionChair.com,derived
+marissa-glover,Marissa.Glover@ChampionChair.com,Finance,Finance|Supply Chain Management,Director of Marketing,Wendell Raddatz,Wendell.Raddatz@ChampionChair.com,derived
+kasey-nelson,Kasey.Nelson@ChampionChair.com,Finance,Finance|Project Operations|Supply Chain Management,Order Entry Specialist,Angela Ness,Angela.Ness@ChampionChair.com,derived
+donisha-potts,Donisha.Potts@ChampionChair.com,Finance,Finance|Project Operations|Supply Chain Management,Accounts Payable Supervisor,Hetal Parekh-Shah,Hetal.Parekh-Shah@ChampionChair.com,derived
+helen-leyva,Helen.Leyva@ChampionChair.com,Finance,Finance|Supply Chain Management,Customer Service Representative,Kristal Ruiz,Kristal.Ruiz@ChampionChair.com,derived
+devin-jones,devin.jones@ChampionChair.com,Finance,Finance|Supply Chain Management,Inside Sales,Wendell Raddatz,Wendell.Raddatz@ChampionChair.com,derived
+bianca-fajardo,Bianca.Fajardo@championchair.com,Finance,Finance|Supply Chain Management,Inside Sales Representative,Lindsay Sanborn,Lindsay.Sanborn@ChampionChair.com,derived
+gbehensky,gbehensky@ChampionChair.com,Supply Chain Management,Finance|Supply Chain Management,Product Support Specialist,Kristal Ruiz,Kristal.Ruiz@ChampionChair.com,derived
+kelly-hill,Kelly.Hill@ChampionChair.com,Finance,Finance|Supply Chain Management,Order Entry Specialist,Jennifer Turner,Jennifer.Turner@ChampionChair.com,roster
+jordan-crippen,Jordan.Crippen@ChampionChair.com,Operations - Activity,Finance|Supply Chain Management,TMM Regional Sales Manager,Jim Mack,Jim.Mack@ChampionChair.com,derived
+amy-hart,Amy.Hart@championchair.com,Supply Chain Management,Finance|Supply Chain Management,Material Planning Manager,Omar Nunez,Omar.Nunez@ChampionChair.com,derived
+jcamp,jcamp@ChampionChair.com,Supply Chain Management,Finance|Supply Chain Management,Production Manager,Paul McAllister,Paul.McAllister@ChampionChair.com,roster
+receiving-department,Receiving.Department@ChampionChair.com,Supply Chain Management,Finance|Project Operations|Supply Chain Management,Receiving (shared acct),,,none
+kayla-hampton,Kayla.Hampton@ChampionChair.com,Finance,Finance|Project Operations|Supply Chain Management,Accountant Associate,Hetal Parekh-Shah,Hetal.Parekh-Shah@ChampionChair.com,derived
+shipping,shipping@championchair.com,Supply Chain Management,Finance|Project Operations|Supply Chain Management,shipping (shared),,,none

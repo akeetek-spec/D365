@@ -1,0 +1,11 @@
+node_modules/
+api/local.settings.json
+*.log
+.DS_Store
+.local-data/
+local.env
+.azurite/
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log

@@ -1,0 +1,46 @@
+# Firebase App Hosting settings for D365 Licence Check: TESTING.
+#
+# Used only by the testing backend (Firebase console > App Hosting > testing backend > Settings >
+# Environment > Environment name: testing). Everything not listed here comes from apphosting.yaml.
+#
+# What's different from production:
+#   - its own Firestore database "test", so the real data is never touched
+#   - only the two test people: pal@akeetek.com and akeetek01@gmail.com
+#   - test sign-in: pick who to be, no password (allowed only because the database is "test")
+
+runConfig:
+  maxInstances: 1
+
+env:
+  # The testing backend's own address.
+  - variable: APP_URL
+    value: https://<test-backend-id>--<project-id>.<region>.hosted.app
+    availability: [RUNTIME]
+
+  # Separate database. Create it first: Firebase console > Firestore Database > Create database, ID "test".
+  - variable: FIRESTORE_DATABASE
+    value: test
+    availability: [RUNTIME]
+
+  # Test sign-in with no password. To test the real email + password sign-in instead, change
+  # SIGN_IN to firebase and add Firebase Authentication accounts for the two test emails.
+  - variable: SIGN_IN
+    value: test
+    availability: [RUNTIME]
+  - variable: ALLOW_TEST_SIGNIN
+    value: "true"
+    availability: [RUNTIME]
+
+  # Only test emails, so nothing reaches Champion Chair.
+  - variable: ROLE_ITDIRECTOR
+    value: pal@akeetek.com
+    availability: [RUNTIME]
+  - variable: ROLE_ITADMIN
+    value: akeetek01@gmail.com
+    availability: [RUNTIME]
+  - variable: IT_DIRECTOR_EMAIL
+    value: pal@akeetek.com
+    availability: [RUNTIME]
+  - variable: ROSTER_FILE
+    value: data/roster.test.json
+    availability: [RUNTIME]

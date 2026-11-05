@@ -1,0 +1,642 @@
+[
+ {
+  "id": "rivelyn-yip",
+  "email": "Rivelyn.Yip@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Commerce",
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Production Planner",
+  "supervisorName": "Vincent Bonomo",
+  "managerEmail": "Vincent.Bonomo@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Commerce – role review",
+  "order": 1
+ },
+ {
+  "id": "bryce-kriner",
+  "email": "Bryce.Kriner@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Commerce",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Buyer",
+  "supervisorName": "Amy Hart",
+  "managerEmail": "Amy.Hart@championchair.com",
+  "managerEmailStatus": "roster",
+  "group": "Commerce – role review",
+  "order": 2
+ },
+ {
+  "id": "christine-ksicellus",
+  "email": "Christine.Ksicellus@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Commerce",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Logistics Coordinator",
+  "supervisorName": "Omar Nunez",
+  "managerEmail": "Omar.Nunez@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Commerce – role review",
+  "order": 3
+ },
+ {
+  "id": "jared-canipe",
+  "email": "Jared.Canipe@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "T-Series Product Applications Specialist",
+  "supervisorName": "Jennifer Turner",
+  "managerEmail": "Jennifer.Turner@ChampionChair.com",
+  "managerEmailStatus": "roster",
+  "group": "Add attach licence",
+  "order": 4
+ },
+ {
+  "id": "jay-artil",
+  "email": "Jay.Artil@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "D365 Consultant",
+  "supervisorName": "Wendell Raddatz",
+  "managerEmail": "Wendell.Raddatz@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "order": 5
+ },
+ {
+  "id": "rich-willenbrink",
+  "email": "Rich.Willenbrink@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Sr. Quality Engineer",
+  "supervisorName": "Paul McAllister",
+  "managerEmail": "Paul.McAllister@ChampionChair.com",
+  "managerEmailStatus": "roster",
+  "group": "Add attach licence",
+  "order": 6
+ },
+ {
+  "id": "jordan-petroski",
+  "email": "Jordan.Petroski@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Inside Sales Representative",
+  "supervisorName": "Angela Ness",
+  "managerEmail": "Angela.Ness@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "order": 7
+ },
+ {
+  "id": "jennifer-turner",
+  "email": "Jennifer.Turner@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Director of Customer Experience",
+  "supervisorName": "Wendell Raddatz",
+  "managerEmail": "Wendell.Raddatz@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "order": 8
+ },
+ {
+  "id": "jim-true",
+  "email": "Jim.True@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Consultant",
+  "supervisorName": "Wendell Raddatz",
+  "managerEmail": "Wendell.Raddatz@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "order": 9
+ },
+ {
+  "id": "natalie-hesson",
+  "email": "Natalie.Hesson@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Order Entry Specialist",
+  "supervisorName": "Jared Canipe",
+  "managerEmail": "Jared.Canipe@ChampionChair.com",
+  "managerEmailStatus": "roster",
+  "group": "Add attach licence",
+  "order": 10
+ },
+ {
+  "id": "brianna-ziotecki",
+  "email": "Brianna.Ziotecki@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Home Patient Operations Specialist",
+  "supervisorName": "Jennifer Turner",
+  "managerEmail": "Jennifer.Turner@ChampionChair.com",
+  "managerEmailStatus": "roster",
+  "group": "Add attach licence",
+  "order": 11
+ },
+ {
+  "id": "angela-redet",
+  "email": "Angela.Redet@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Product Support and Complaint Handling Supervisor",
+  "supervisorName": "Jennifer Turner",
+  "managerEmail": "Jennifer.Turner@ChampionChair.com",
+  "managerEmailStatus": "roster",
+  "group": "Add attach licence",
+  "order": 12
+ },
+ {
+  "id": "melissa-hirth",
+  "email": "Melissa.Hirth@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "VP Strategic Partnerships and OEM Solutions",
+  "supervisorName": "Thomas O'Neill",
+  "managerEmail": "Thomas.ONeill@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "order": 13
+ },
+ {
+  "id": "william-rudan",
+  "email": "William.Rudan@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Project Operations",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Manufacturing Engineer",
+  "supervisorName": "Brad Mikals",
+  "managerEmail": "Brad.Mikals@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Project Ops – role review",
+  "order": 14
+ },
+ {
+  "id": "iain-burton",
+  "email": "Iain.Burton@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Project Operations",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Manufacturing Engineer",
+  "supervisorName": "Brad Mikals",
+  "managerEmail": "Brad.Mikals@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Project Ops – role review",
+  "order": 15
+ },
+ {
+  "id": "tyson-helmke",
+  "email": "Tyson.Helmke@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Project Operations",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Lead Engineer",
+  "supervisorName": "Brad Mikals",
+  "managerEmail": "Brad.Mikals@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Project Ops – role review",
+  "order": 16
+ },
+ {
+  "id": "dmyers",
+  "email": "DMyers@championchair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Project Operations",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Senior Engineering Technician",
+  "supervisorName": "Brad Mikals",
+  "managerEmail": "Brad.Mikals@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Project Ops – role review",
+  "order": 17
+ },
+ {
+  "id": "franklin-perez",
+  "email": "Franklin.Perez@ChampionChair.com",
+  "current": [
+   "Operations - Activity"
+  ],
+  "required": [
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Team Lead",
+  "supervisorName": "William Glennon",
+  "managerEmail": "William.Glennon@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Activity user – role review",
+  "order": 18
+ },
+ {
+  "id": "service-cell",
+  "email": "Service.Cell@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Finance",
+   "Project Operations",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Service cell operations (shared acct)",
+  "supervisorName": "",
+  "managerEmail": "",
+  "managerEmailStatus": "none",
+  "group": "Shared account – compliance",
+  "approvalNote": "Shared account: no supervisor on file. Assign an owner to approve, or replace with named logins or device licences.",
+  "order": 19
+ },
+ {
+  "id": "collin-jacobs",
+  "email": "Collin.Jacobs@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Regional Sales Manager",
+  "supervisorName": "Angela Ness",
+  "managerEmail": "Angela.Ness@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "approvalNote": "Supervisor listed as “Angel Ness” in the report; read as Angela Ness. Please confirm.",
+  "order": 20
+ },
+ {
+  "id": "deshna-parekh",
+  "email": "Deshna.Parekh@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Project Operations",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Accountant",
+  "supervisorName": "Katie White",
+  "managerEmail": "Katie.White@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Project Ops – role review",
+  "order": 21
+ },
+ {
+  "id": "janicia-mcbride",
+  "email": "Janicia.McBride@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Order Entry Specialist",
+  "supervisorName": "Jennifer Turner",
+  "managerEmail": "Jennifer.Turner@ChampionChair.com",
+  "managerEmailStatus": "roster",
+  "group": "Add attach licence",
+  "order": 22
+ },
+ {
+  "id": "paul-mcallister",
+  "email": "Paul.McAllister@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Chief Operating Officer",
+  "supervisorName": "Thomas O'Neill",
+  "managerEmail": "Thomas.ONeill@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "order": 23
+ },
+ {
+  "id": "marissa-glover",
+  "email": "Marissa.Glover@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Director of Marketing",
+  "supervisorName": "Wendell Raddatz",
+  "managerEmail": "Wendell.Raddatz@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "order": 24
+ },
+ {
+  "id": "kasey-nelson",
+  "email": "Kasey.Nelson@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Project Operations",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Order Entry Specialist",
+  "supervisorName": "Angela Ness",
+  "managerEmail": "Angela.Ness@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Project Ops – role review",
+  "order": 25
+ },
+ {
+  "id": "donisha-potts",
+  "email": "Donisha.Potts@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Project Operations",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Accounts Payable Supervisor",
+  "supervisorName": "Hetal Parekh-Shah",
+  "managerEmail": "Hetal.Parekh-Shah@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Project Ops – role review",
+  "order": 26
+ },
+ {
+  "id": "helen-leyva",
+  "email": "Helen.Leyva@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Customer Service Representative",
+  "supervisorName": "Kristal Ruiz",
+  "managerEmail": "Kristal.Ruiz@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "order": 27
+ },
+ {
+  "id": "devin-jones",
+  "email": "devin.jones@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Inside Sales",
+  "supervisorName": "Wendell Raddatz",
+  "managerEmail": "Wendell.Raddatz@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "order": 28
+ },
+ {
+  "id": "bianca-fajardo",
+  "email": "Bianca.Fajardo@championchair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Inside Sales Representative",
+  "supervisorName": "Lindsay Sanborn",
+  "managerEmail": "Lindsay.Sanborn@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "order": 29
+ },
+ {
+  "id": "gbehensky",
+  "email": "gbehensky@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Product Support Specialist",
+  "supervisorName": "Kristal Ruiz",
+  "managerEmail": "Kristal.Ruiz@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "order": 30
+ },
+ {
+  "id": "kelly-hill",
+  "email": "Kelly.Hill@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Order Entry Specialist",
+  "supervisorName": "Jennifer Turner",
+  "managerEmail": "Jennifer.Turner@ChampionChair.com",
+  "managerEmailStatus": "roster",
+  "group": "Add attach licence",
+  "order": 31
+ },
+ {
+  "id": "jordan-crippen",
+  "email": "Jordan.Crippen@ChampionChair.com",
+  "current": [
+   "Operations - Activity"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "TMM Regional Sales Manager",
+  "supervisorName": "Jim Mack",
+  "managerEmail": "Jim.Mack@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Activity user – role review",
+  "order": 32
+ },
+ {
+  "id": "amy-hart",
+  "email": "Amy.Hart@championchair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Material Planning Manager",
+  "supervisorName": "Omar Nunez",
+  "managerEmail": "Omar.Nunez@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Add attach licence",
+  "order": 33
+ },
+ {
+  "id": "jcamp",
+  "email": "jcamp@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Finance",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Production Manager",
+  "supervisorName": "Paul McAllister",
+  "managerEmail": "Paul.McAllister@ChampionChair.com",
+  "managerEmailStatus": "roster",
+  "group": "Add attach licence",
+  "order": 34
+ },
+ {
+  "id": "receiving-department",
+  "email": "Receiving.Department@ChampionChair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Finance",
+   "Project Operations",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Receiving (shared acct)",
+  "supervisorName": "",
+  "managerEmail": "",
+  "managerEmailStatus": "none",
+  "group": "Shared account – compliance",
+  "approvalNote": "Shared account: no supervisor on file. Assign an owner to approve, or replace with named logins or device licences.",
+  "order": 35
+ },
+ {
+  "id": "kayla-hampton",
+  "email": "Kayla.Hampton@ChampionChair.com",
+  "current": [
+   "Finance"
+  ],
+  "required": [
+   "Finance",
+   "Project Operations",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "Accountant Associate",
+  "supervisorName": "Hetal Parekh-Shah",
+  "managerEmail": "Hetal.Parekh-Shah@ChampionChair.com",
+  "managerEmailStatus": "derived",
+  "group": "Project Ops – role review",
+  "order": 36
+ },
+ {
+  "id": "shipping",
+  "email": "shipping@championchair.com",
+  "current": [
+   "Supply Chain Management"
+  ],
+  "required": [
+   "Finance",
+   "Project Operations",
+   "Supply Chain Management"
+  ],
+  "jobTitle": "shipping (shared)",
+  "supervisorName": "",
+  "managerEmail": "",
+  "managerEmailStatus": "none",
+  "group": "Shared account – compliance",
+  "approvalNote": "Shared account: no supervisor on file. Assign an owner to approve, or replace with named logins or device licences.",
+  "order": 37
+ }
+]

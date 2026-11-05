@@ -1,0 +1,28 @@
+{
+  "name": "d365-licence-check",
+  "version": "1.0.0",
+  "private": true,
+  "description": "D365 Licence Check: people confirm the D365 access they need, supervisors and the IT Director approve.",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "roster": "node server/roster.js",
+    "invite": "node server/roster.js --invite",
+    "test": "node api/test/flow.test.js && node api/test/invite.test.js",
+    "sync": "node api/scripts/sync-shared.js",
+    "reset": "node -e \"require('fs').rmSync('.local-data',{recursive:true,force:true});console.log('Local data cleared.')\"",
+    "format": "prettier --write \"web/**/*.{js,css,html,json}\" \"api/src/**/*.js\" \"api/scripts/*.js\" \"api/test/*.js\" \"server/*.js\""
+  },
+  "dependencies": {
+    "@azure/data-tables": "^13.2.2",
+    "@azure/identity": "^4.4.1",
+    "@google-cloud/firestore": "^7.11.0",
+    "nodemailer": "^6.9.16"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "prettier": "3.3.3"
+  }
+}

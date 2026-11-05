@@ -1,0 +1,10 @@
+rules_version = '2';
+// Only the app's server reads and writes this database (with its own service account, which these
+// rules don't apply to). Browsers and the Firebase client SDK get no access at all.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
