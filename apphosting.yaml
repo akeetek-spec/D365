@@ -26,7 +26,7 @@ env:
     value: AIzaSyDptS_naDVWNxz4wxaGAPYD-v-tB_CWNxY
     availability: [RUNTIME]
   # Keeps people signed in for 8 hours. Secret: any random text of 32+ characters.
-  - variable: SESSION_SECRET
+  - variable: f28a7a77ef1f457e9c1c8c2ccf18b69317c367acc1bcff3dd854c8de0d162a25
     secret: sessionSecret
 
   # Who can use the dashboard (comma-separated). Each needs a Firebase Authentication account
@@ -38,7 +38,7 @@ env:
     value: jennifer.derby@championchair.com
     availability: [RUNTIME]
   - variable: ROLE_LEADERSHIP
-    value: ""
+    value: jennifer.derby@championchair.com
     availability: [RUNTIME]
   # Gets the "ready for IT Director approval" emails.
   - variable: IT_DIRECTOR_EMAIL
@@ -63,8 +63,8 @@ env:
     value: D365 Licence Check
     availability: [RUNTIME]
   # For MAIL_MODE gmail: create the gmailAppPassword secret, then remove the # from the next two lines.
-  # - variable: GMAIL_APP_PASSWORD
-  #   secret: gmailAppPassword
+  - variable: GMAIL_APP_PASSWORD
+    secret: gmailAppPassword
 
   # How long personal links work, in days.
   - variable: LINK_DAYS
