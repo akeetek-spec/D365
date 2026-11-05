@@ -48,3 +48,9 @@ env:
   - variable: ROSTER_FILE
     value: data/roster.test.json
     availability: [RUNTIME]
+
+  - variable: MAIL_MODE
+    value: gmail
+    availability: [RUNTIME]
+  - variable: GMAIL_APP_PASSWORD
+    secret: gmailAppPassword
