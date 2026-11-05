@@ -93,9 +93,20 @@ function startupProblems() {
   if (process.env.MAIL_MODE === "gmail") {
     if (!/@/.test(process.env.MAIL_SENDER || ""))
       out.push("MAIL_SENDER must be the Gmail address emails are sent from.");
-    if (String(process.env.GMAIL_APP_PASSWORD || "").replace(/\s+/g, "").length !== 16)
+    // A Google App Password is 16 letters. Spaces, invisible gaps and quotes copied with it are ignored.
+    const raw = String(process.env.GMAIL_APP_PASSWORD || "");
+    const letters = raw.replace(/[^A-Za-z]/g, "");
+    if (!raw.trim())
       out.push(
-        "GMAIL_APP_PASSWORD must be the 16-character Google App Password (not the account password)."
+        "GMAIL_APP_PASSWORD is not set. In apphosting.yaml (or apphosting.testing.yaml) add the two lines " +
+          '"- variable: GMAIL_APP_PASSWORD" and "secret: gmailAppPassword" (no # in front), ' +
+          "give the backend access to the gmailAppPassword secret, and start a new rollout."
+      );
+    else if (letters.length !== 16)
+      out.push(
+        `GMAIL_APP_PASSWORD has ${letters.length} letters${raw.length !== letters.length ? ` (plus ${raw.length - letters.length} other characters, ignored)` : ""}; ` +
+          "a Google App Password has exactly 16. Save the App Password again with " +
+          '"firebase apphosting:secrets:set gmailAppPassword" and start a new rollout.'
       );
   }
   if (process.env.MAIL_MODE === "graph") {

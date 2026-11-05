@@ -64,8 +64,8 @@ env:
     value: D365 Licence Check
     availability: [RUNTIME]
   # For MAIL_MODE gmail: create the gmailAppPassword secret, then delete just the # on the next two lines.
-  #- variable: GMAIL_APP_PASSWORD
-  #  secret: gmailAppPassword
+  - variable: GMAIL_APP_PASSWORD
+    secret: gmailAppPassword
 
   # How long personal links work, in days.
   - variable: LINK_DAYS

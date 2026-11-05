@@ -55,7 +55,8 @@ async function gmailSend(to, subject, body) {
       maxConnections: 1,
       auth: {
         user: process.env.MAIL_SENDER,
-        pass: String(process.env.GMAIL_APP_PASSWORD || "").replace(/\s+/g, "")
+        // keep only the 16 letters (Google shows the code with spaces between groups)
+        pass: String(process.env.GMAIL_APP_PASSWORD || "").replace(/[^A-Za-z]/g, "")
       }
     });
   await transport.sendMail({
