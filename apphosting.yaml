@@ -11,9 +11,6 @@ runConfig:
   cpu: 1
   memoryMiB: 512
 
-scripts:
-  runCommand: node server/index.js
-
 env:
   # The production address, exactly as people open it (no slash at the end). Goes into every email link.
   - variable: APP_URL
