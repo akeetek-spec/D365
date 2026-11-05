@@ -187,4 +187,3 @@ Run locally: `npm i -g azure-functions-core-tools@4 @azure/static-web-apps-cli`,
 - Task lists: `TASKS` in `web/form.js`. Each task maps to a D365 role in `web/catalog.js`.
 - Prices: dashboard (IT Director) or `DEFAULT_PRICES` in `web/licence.js`.
 - After editing `web/licence.js`, `web/catalog.js` or `web/keep-roles.js`, run `npm run sync` in `api/` so the API uses the same rules.
-# D365

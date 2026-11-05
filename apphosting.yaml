@@ -11,6 +11,9 @@ runConfig:
   cpu: 1
   memoryMiB: 512
 
+scripts:
+  runCommand: node server/index.js
+
 env:
   # The production address, exactly as people open it (no slash at the end). Goes into every email link.
   - variable: APP_URL
@@ -37,9 +40,7 @@ env:
   - variable: ROLE_ITADMIN
     value: jennifer.derby@championchair.com
     availability: [RUNTIME]
-  - variable: ROLE_LEADERSHIP
-    value: jennifer.derby@championchair.com
-    availability: [RUNTIME]
+  # Read-only leadership access: add a ROLE_LEADERSHIP entry here (comma-separated emails) when needed.
   # Gets the "ready for IT Director approval" emails.
   - variable: IT_DIRECTOR_EMAIL
     value: andres.santana@championchair.com
@@ -62,9 +63,9 @@ env:
   - variable: MAIL_FROM_NAME
     value: D365 Licence Check
     availability: [RUNTIME]
-  # For MAIL_MODE gmail: create the gmailAppPassword secret, then remove the # from the next two lines.
-  - variable: GMAIL_APP_PASSWORD
-    secret: gmailAppPassword
+  # For MAIL_MODE gmail: create the gmailAppPassword secret, then delete just the # on the next two lines.
+  #- variable: GMAIL_APP_PASSWORD
+  #  secret: gmailAppPassword
 
   # How long personal links work, in days.
   - variable: LINK_DAYS
