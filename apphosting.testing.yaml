@@ -27,6 +27,10 @@ env:
   - variable: SIGN_IN
     value: test
     availability: [RUNTIME]
+  # Firebase console > Project settings (gear) > General > "Web API key".
+  - variable: FIREBASE_API_KEY
+    value: AIzaSyDptS_naDVWNxz4wxaGAPYD-v-tB_CWNxY
+    availability: [RUNTIME]
   - variable: ALLOW_TEST_SIGNIN
     value: "true"
     availability: [RUNTIME]
@@ -44,3 +48,16 @@ env:
   - variable: ROSTER_FILE
     value: data/roster.test.json
     availability: [RUNTIME]
+
+  # Email: sent automatically from Microsoft 365 (password in the smtpPassword secret).
+  - variable: MAIL_MODE
+    value: smtp
+    availability: [RUNTIME]
+  - variable: MAIL_SENDER
+    value: akeetek@championchair.com
+    availability: [RUNTIME]
+  - variable: MAIL_FROM_NAME
+    value: D365 Licence Check
+    availability: [RUNTIME]
+  - variable: SMTP_PASSWORD
+    secret: smtpPassword
