@@ -29,7 +29,7 @@ env:
     value: AIzaSyDptS_naDVWNxz4wxaGAPYD-v-tB_CWNxY
     availability: [ RUNTIME ]
   # Keeps people signed in for 8 hours. Secret: any random text of 32+ characters.
-  - variable: f28a7a77ef1f457e9c1c8c2ccf18b69317c367acc1bcff3dd854c8de0d162a25
+  - variable: SESSION_SECRET
     secret: sessionSecret
 
   # Who can use the dashboard (comma-separated). Each needs a Firebase Authentication account
