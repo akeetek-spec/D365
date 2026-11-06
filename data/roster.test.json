@@ -49,5 +49,56 @@
     "managerEmailStatus": "roster",
     "group": "Test",
     "order": 0
+  },
+  {
+    "id": "bhush",
+    "email": "bhush.pal@gmail.com",
+    "current": [
+      "Finance"
+    ],
+    "required": [
+      "Finance",
+      "Supply Chain Management"
+    ],
+    "jobTitle": "Test user (Finance and Supply Chain)",
+    "supervisorName": "Pal",
+    "managerEmail": "pal@akeetek.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 1
+  },
+  {
+    "id": "akeetek",
+    "email": "akeetek@championchair.com",
+    "current": [
+      "Finance"
+    ],
+    "required": [
+      "Finance",
+      "Supply Chain Management"
+    ],
+    "jobTitle": "Test user (Finance and Supply Chain)",
+    "supervisorName": "Pal",
+    "managerEmail": "pal@akeetek.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 2
+  },
+  {
+    "id": "nadeekak",
+    "email": "nadeekak@akeetek.com",
+    "current": [
+      "Finance"
+    ],
+    "required": [
+      "Finance",
+      "Supply Chain Management"
+    ],
+    "jobTitle": "Test user (Finance and Supply Chain)",
+    "supervisorName": "Pal",
+    "managerEmail": "pal@akeetek.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 3
   }
 ]

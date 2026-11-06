@@ -5,7 +5,7 @@
 #
 # What's different from production:
 #   - its own Firestore database "test", so the real data is never touched
-#   - only the two test people: pal@akeetek.com and akeetek01@gmail.com
+#   - only the test people listed in data/roster.test.json
 #   - test sign-in: pick who to be, no password (allowed only because the database is "test")
 
 runConfig:

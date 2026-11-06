@@ -58,8 +58,8 @@ const findUser = async (db, id) => docData(db.doc(`roster/${id}`));
 const T = {
   invite: async (db, id, u) => [
     u.email,
-    "Please check your D365 licence (2 minutes)",
-    `${hi(u.email)}\n\nWe're making sure everyone has the D365 licence their job needs, and nothing more. Please answer a few short questions:\n\n${tokens.link("user", await tokens.issue(db, "user", id))}\n\nThe link is personal to you and works for ${process.env.LINK_DAYS || 10} days.\n${sign}`,
+    "Please check your D365 licence (takes just 1 minute)",
+    `${hi(u.email)}\n\nOn behalf of Andres Santana, we’re reaching out to ensure you have the D365 licence your role requires. Please follow the link, it takes just a minute to complete, so we can help issue the appropriate licence.\n\n${tokens.link("user", await tokens.issue(db, "user", id))}\n\nThis link will expire shortly, so please take action.\n\nWe’ll pass your answers to your manager to approve, then the IT team will set it up.\n\nBest regards,\nTeam IT\n`,
     "invite"
   ],
   managerReview: async (db, m, u, rec) => [
