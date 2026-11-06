@@ -18,16 +18,16 @@ env:
   # The production address, exactly as people open it (no slash at the end). Goes into every email link.
   - variable: APP_URL
     value: https://d365--excel-292de.us-east4.hosted.app
-    availability: [RUNTIME]
+    availability: [ RUNTIME ]
 
   # Dashboard sign-in: email + password accounts made in Firebase console > Authentication > Users.
   - variable: SIGN_IN
     value: firebase
-    availability: [RUNTIME]
+    availability: [ RUNTIME ]
   # Firebase console > Project settings (gear) > General > "Web API key".
   - variable: FIREBASE_API_KEY
     value: AIzaSyDptS_naDVWNxz4wxaGAPYD-v-tB_CWNxY
-    availability: [RUNTIME]
+    availability: [ RUNTIME ]
   # Keeps people signed in for 8 hours. Secret: any random text of 32+ characters.
   - variable: f28a7a77ef1f457e9c1c8c2ccf18b69317c367acc1bcff3dd854c8de0d162a25
     secret: sessionSecret
@@ -36,38 +36,37 @@ env:
   # with the same email.
   - variable: ROLE_ITDIRECTOR
     value: andres.santana@championchair.com
-    availability: [RUNTIME]
+    availability: [ RUNTIME ]
   - variable: ROLE_ITADMIN
     value: jennifer.derby@championchair.com
-    availability: [RUNTIME]
+    availability: [ RUNTIME ]
   # Read-only leadership access: add a ROLE_LEADERSHIP entry here (comma-separated emails) when needed.
   # Gets the "ready for IT Director approval" emails.
   - variable: IT_DIRECTOR_EMAIL
     value: andres.santana@championchair.com
-    availability: [RUNTIME]
+    availability: [ RUNTIME ]
 
   # People loaded into Firestore (anyone not there yet is added on each start).
   - variable: ROSTER_FILE
     value: data/roster.json
-    availability: [RUNTIME]
+    availability: [ RUNTIME ]
 
   # Email.
   #   outbox: invites wait on the dashboard under "Emails waiting to send" for IT to send.
   #   smtp:   sent automatically from MAIL_SENDER (Microsoft 365) with its password (secret smtpPassword).
   - variable: MAIL_MODE
     value: smtp
-    availability: [RUNTIME]
+    availability: [ RUNTIME ]
   - variable: MAIL_SENDER
     value: akeetek@championchair.com
-    availability: [RUNTIME]
+    availability: [ RUNTIME ]
   - variable: MAIL_FROM_NAME
     value: D365 Licence Check
-    availability: [RUNTIME]
-  # For MAIL_MODE smtp: the mailbox password, kept in the smtpPassword secret (not written in this file).
+    availability: [ RUNTIME ]
   - variable: SMTP_PASSWORD
     secret: smtpPassword
 
   # How long personal links work, in days.
   - variable: LINK_DAYS
     value: "10"
-    availability: [RUNTIME]
+    availability: [ RUNTIME ]
