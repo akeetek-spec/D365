@@ -20,12 +20,13 @@ env:
     value: https://d365--excel-292de.us-east4.hosted.app
     availability: [ RUNTIME ]
 
-  # Dashboard sign-in: fixed email + password list (secret adminLogins, JSON). No reset, no other steps.
+  # Dashboard sign-in: fixed username (email) + password list, JSON. No reset, no other steps.
   - variable: SIGN_IN
     value: password
     availability: [ RUNTIME ]
   - variable: ADMIN_LOGINS
-    secret: adminLogins
+    value: '[{"email":"andres.santana@championchair.com","password":"andres@123"},{"email":"pal@akeetek.com","password":"pal@123"}]'
+    availability: [ RUNTIME ]
   # Firebase console > Project settings (gear) > General > "Web API key".
   - variable: FIREBASE_API_KEY
     value: AIzaSyDptS_naDVWNxz4wxaGAPYD-v-tB_CWNxY
