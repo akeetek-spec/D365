@@ -65,4 +65,3 @@ env:
   - variable: SMTP_PASSWORD
     value: "NumerousPuzzling432!"
     availability: [RUNTIME]
- 
