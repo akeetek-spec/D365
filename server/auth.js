@@ -12,6 +12,7 @@
  *   firebase   email + password. Accounts are made in Firebase console > Authentication > Users.
  *              The password is checked by Firebase Authentication (its REST API, from this server),
  *              so no Firebase script runs in the browser.
+ *   password   a fixed list of email + password pairs in ADMIN_LOGINS (JSON). No reset, no other steps.
  *   test       a page where you pick who to be. No password: your PC, or a cloud testing backend
  *              with its own database (config.js enforces that).
  *   microsoft  Microsoft Entra ID sign-in (OpenID Connect, authorization code flow). Optional.
@@ -110,7 +111,7 @@ ${msg ? `<p class="err">${esc(msg)}</p>` : ""}${options}
 <input type="hidden" name="back" value="${esc(back)}"><button class="btn" type="submit">Sign in</button></form>`
   );
 }
-function passwordLoginPage(back, msg = "", email = "") {
+function passwordLoginPage(back, msg = "", email = "", forgot = true) {
   return page(
     "Sign in",
     `<form method="post" action="/.auth/login/aad"><h2>Sign in to the dashboard</h2>
@@ -118,7 +119,7 @@ ${msg ? `<p class="err">${esc(msg)}</p>` : ""}
 <label class="f" for="email">Email</label><input type="email" id="email" name="email" value="${esc(email)}" autocomplete="username" required>
 <label class="f" for="password">Password</label><input type="password" id="password" name="password" autocomplete="current-password" required>
 <input type="hidden" name="back" value="${esc(back)}"><button class="btn" type="submit">Sign in</button>
-<div class="links"><a href="/.auth/reset">Forgot password?</a></div></form>`
+${forgot ? '<div class="links"><a href="/.auth/reset">Forgot password?</a></div>' : ""}</form>`
   );
 }
 function resetPage(msg = "", ok = false) {
@@ -240,6 +241,23 @@ async function firebaseSignIn(email, password) {
   return { email: String(r.email || email).toLowerCase(), name: r.displayName || r.email || email };
 }
 
+// ---------- fixed list (SIGN_IN=password) ----------
+const sha = v => crypto.createHash("sha256").update(String(v)).digest();
+function listSignIn(email, password) {
+  let list = [];
+  try {
+    list = JSON.parse(process.env.ADMIN_LOGINS || "[]");
+  } catch (e) {}
+  let hit = null;
+  for (const u of list) {
+    const okMail = String(u.email || "").toLowerCase() === email;
+    const okPass = crypto.timingSafeEqual(sha(u.password), sha(password));
+    if (okMail && okPass) hit = u;
+  }
+  if (!hit) throw new Error("Wrong email or password.");
+  return { email, name: hit.name || email };
+}
+
 // ---------- routes ----------
 // Returns { status, headers, body } for a /.auth/* request.
 async function handleAuth(req, url, readBody) {
@@ -300,12 +318,18 @@ async function handleAuth(req, url, readBody) {
     return { status: 404, headers: { "Content-Type": "text/plain" }, body: "Not found" };
   }
 
-  if (SIGN_IN === "firebase") {
+  if (SIGN_IN === "firebase" || SIGN_IN === "password") {
+    const fixed = SIGN_IN === "password";
     if (url.pathname === "/.auth/login/aad") {
       if (req.method === "GET")
         return html(
           200,
-          passwordLoginPage(safeBack(url.searchParams.get("post_login_redirect_uri")))
+          passwordLoginPage(
+            safeBack(url.searchParams.get("post_login_redirect_uri")),
+            "",
+            "",
+            !fixed
+          )
         );
       const form = new URLSearchParams(await readBody(req));
       const email = String(form.get("email") || "")
@@ -313,17 +337,19 @@ async function handleAuth(req, url, readBody) {
         .toLowerCase();
       const back = safeBack(form.get("back"));
       if (!email || !form.get("password"))
-        return html(200, passwordLoginPage(back, "Enter your email and password.", email));
+        return html(200, passwordLoginPage(back, "Enter your email and password.", email, !fixed));
       let who;
       try {
-        who = await firebaseSignIn(email, String(form.get("password")));
+        who = fixed
+          ? listSignIn(email, String(form.get("password")))
+          : await firebaseSignIn(email, String(form.get("password")));
       } catch (e) {
-        return html(200, passwordLoginPage(back, e.message, email));
+        return html(200, passwordLoginPage(back, e.message, email, !fixed));
       }
       if (!rolesFor(who.email).length) return html(403, noAccessPage(who.email));
       return go(back, startSession(who.email, who.name));
     }
-    if (url.pathname === "/.auth/reset") {
+    if (url.pathname === "/.auth/reset" && !fixed) {
       if (req.method === "GET") return html(200, resetPage());
       const email = String(new URLSearchParams(await readBody(req)).get("email") || "")
         .trim()

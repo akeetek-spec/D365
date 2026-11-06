@@ -20,10 +20,12 @@ env:
     value: https://d365--excel-292de.us-east4.hosted.app
     availability: [ RUNTIME ]
 
-  # Dashboard sign-in: email + password accounts made in Firebase console > Authentication > Users.
+  # Dashboard sign-in: fixed email + password list (secret adminLogins, JSON). No reset, no other steps.
   - variable: SIGN_IN
-    value: firebase
+    value: password
     availability: [ RUNTIME ]
+  - variable: ADMIN_LOGINS
+    secret: adminLogins
   # Firebase console > Project settings (gear) > General > "Web API key".
   - variable: FIREBASE_API_KEY
     value: AIzaSyDptS_naDVWNxz4wxaGAPYD-v-tB_CWNxY
@@ -38,7 +40,7 @@ env:
     value: andres.santana@championchair.com
     availability: [ RUNTIME ]
   - variable: ROLE_ITADMIN
-    value: jennifer.derby@championchair.com
+    value: jennifer.derby@championchair.com,pal@akeetek.com
     availability: [ RUNTIME ]
   # Read-only leadership access: add a ROLE_LEADERSHIP entry here (comma-separated emails) when needed.
   # Gets the "ready for IT Director approval" emails.

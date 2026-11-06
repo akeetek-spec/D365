@@ -25,7 +25,7 @@ env:
   # Test sign-in with no password. To test the real email + password sign-in instead, change
   # SIGN_IN to firebase and add Firebase Authentication accounts for the two test emails.
   - variable: SIGN_IN
-    value: test
+    value: password
     availability: [RUNTIME]
   # Firebase console > Project settings (gear) > General > "Web API key".
   - variable: FIREBASE_API_KEY
@@ -40,7 +40,7 @@ env:
     value: pal@akeetek.com
     availability: [RUNTIME]
   - variable: ROLE_ITADMIN
-    value: akeetek01@gmail.com
+    value: akeetek01@gmail.com,andres.santana@championchair.com
     availability: [RUNTIME]
   - variable: IT_DIRECTOR_EMAIL
     value: pal@akeetek.com

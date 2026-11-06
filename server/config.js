@@ -46,10 +46,11 @@ process.env.APP_URL = process.env.APP_URL.replace(/\/+$/, "");
 
 // Dashboard sign-in (SIGN_IN):
 //   firebase   email + password accounts made in Firebase console > Authentication (production)
+//   password   fixed email + password list in ADMIN_LOGINS (JSON), no reset or other steps
 //   test       pick who to be, no password: your PC, or a cloud testing backend with its own database
 //   microsoft  Microsoft Entra ID (optional)
 // If SIGN_IN isn't set: microsoft when AAD_* is set, firebase when FIREBASE_API_KEY is set, else test.
-const SIGN_IN = ["firebase", "test", "microsoft"].includes(process.env.SIGN_IN)
+const SIGN_IN = ["firebase", "password", "test", "microsoft"].includes(process.env.SIGN_IN)
   ? process.env.SIGN_IN
   : process.env.AAD_CLIENT_ID && process.env.AAD_TENANT_ID
     ? "microsoft"
@@ -74,6 +75,16 @@ function startupProblems() {
     for (const k of ["AAD_TENANT_ID", "AAD_CLIENT_ID", "AAD_CLIENT_SECRET"])
       if (!process.env[k]) out.push(`${k} is not set (needed for Microsoft sign-in).`);
     needSessionSecret();
+  } else if (SIGN_IN === "password") {
+    let list = [];
+    try {
+      list = JSON.parse(process.env.ADMIN_LOGINS || "[]");
+    } catch (e) {}
+    if (!Array.isArray(list) || !list.some(u => u && u.email && u.password))
+      out.push(
+        'ADMIN_LOGINS must be JSON like [{"email":"a@b.com","password":"..."}] (needed for SIGN_IN=password).'
+      );
+    if (IN_CLOUD) needSessionSecret();
   } else if (SIGN_IN === "firebase") {
     if (!process.env.FIREBASE_API_KEY)
       out.push(

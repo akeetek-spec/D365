@@ -215,7 +215,7 @@ function listen() {
     console.log(`\nD365 Licence Check is running at ${process.env.APP_URL}`);
     console.log(`  Dashboard:  ${process.env.APP_URL}/admin`);
     console.log(
-      `  Sign-in:    ${{ microsoft: "Microsoft", firebase: "email + password (Firebase Authentication)", test: "test page (no password)" }[SIGN_IN]}`
+      `  Sign-in:    ${{ microsoft: "Microsoft", firebase: "email + password (Firebase Authentication)", password: "email + password (fixed list)", test: "test page (no password)" }[SIGN_IN]}`
     );
     console.log(`  Data:       ${storeLabel}`);
     console.log(
