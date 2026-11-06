@@ -487,7 +487,7 @@
       const local = me.user.email.split("@")[0],
         first = local.includes(".") ? local.split(".")[0] : "";
       $("whoLine").textContent =
-        `${first ? "Hi " + first[0].toUpperCase() + first.slice(1).toLowerCase() + ", we" : "We"} want to make sure you have the right D365 licence: everything you need and nothing you don't. This takes about two minutes.`;
+        `${first ? "Hi " + first[0].toUpperCase() + first.slice(1).toLowerCase() + ", we" : "We"} want to make sure you have the right D365 licence.`;
       const curInfo = M.currentInfo(me.user, PRICES);
       $("facts").innerHTML = `<dl class="factlist">
       <dt>You</dt><dd>${esc(me.user.email)}${ros.jobTitle ? ` · ${esc(ros.jobTitle)}` : ""}</dd>
