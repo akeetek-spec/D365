@@ -22,8 +22,7 @@ env:
     value: test
     availability: [RUNTIME]
 
-  # Test sign-in with no password. To test the real email + password sign-in instead, change
-  # SIGN_IN to firebase and add Firebase Authentication accounts for the two test emails.
+  # Dashboard sign-in: the fixed username (email) + password list in ADMIN_LOGINS.
   - variable: SIGN_IN
     value: password
     availability: [RUNTIME]

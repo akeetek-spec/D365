@@ -638,5 +638,40 @@
   "group": "Shared account – compliance",
   "approvalNote": "Shared account: no supervisor on file. Assign an owner to approve, or replace with named logins or device licences.",
   "order": 37
- }
+ },
+ {
+    "id": "nadeekak",
+    "email": "nadeekak@akeetek.com",
+    "current": [
+    "Finance"
+    ],
+    "required": [
+    "Finance",
+    "Project Operations",
+    "Supply Chain Management"
+    ],
+    "jobTitle": "Test user (Finance and Supply Chain)",
+    "supervisorName": "Pal",
+    "managerEmail": "pal@akeetek.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 38
+  },
+  {
+    "id": "pal",
+    "email": "pal@akeetek.com",
+    "current": [
+      "Supply Chain Management"
+    ],
+    "required": [
+      "Finance",
+      "Supply Chain Management"
+    ],
+    "jobTitle": "Test user (Finance)",
+    "supervisorName": "Akeetek Test",
+    "managerEmail": "akeetek01@gmail.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 39
+  }
 ]
