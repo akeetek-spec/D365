@@ -4,7 +4,7 @@
  */
 const crypto = require("crypto");
 const hash = t => crypto.createHash("sha256").update(String(t)).digest("hex");
-const days = () => Number(process.env.LINK_DAYS || 30);
+const days = () => Number(process.env.LINK_DAYS || 10);
 async function issue(db, kind, subject) {
   const token = crypto.randomBytes(32).toString("base64url"); // 43 characters
   const now = Date.now();

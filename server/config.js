@@ -30,7 +30,7 @@ const defaults = {
   ROLE_ITDIRECTOR: "andres.santana@championchair.com",
   ROLE_ITADMIN: "jennifer.derby@championchair.com",
   ROLE_LEADERSHIP: "",
-  LINK_DAYS: "30"
+  LINK_DAYS: "10"
 };
 for (const [k, v] of Object.entries(defaults)) if (!process.env[k]) process.env[k] = v;
 // One or more roster files, comma-separated (for example "data/roster.json,data/roster.test.json").
@@ -108,6 +108,11 @@ function startupProblems() {
           "a Google App Password has exactly 16. Save the App Password again with " +
           '"firebase apphosting:secrets:set gmailAppPassword" and start a new rollout.'
       );
+  }
+  if (process.env.MAIL_MODE === "smtp") {
+    if (!/@/.test(process.env.MAIL_SENDER || ""))
+      out.push("MAIL_SENDER must be the address emails are sent from.");
+    if (!process.env.SMTP_PASSWORD) out.push("SMTP_PASSWORD is not set (needed for MAIL_MODE=smtp).");
   }
   if (process.env.MAIL_MODE === "graph") {
     for (const k of ["MAIL_SENDER", "GRAPH_TENANT_ID", "GRAPH_CLIENT_ID", "GRAPH_CLIENT_SECRET"])

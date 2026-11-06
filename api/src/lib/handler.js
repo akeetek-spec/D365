@@ -59,7 +59,7 @@ const T = {
   invite: async (db, id, u) => [
     u.email,
     "Please check your D365 licence (2 minutes)",
-    `${hi(u.email)}\n\nWe're making sure everyone has the D365 licence their job needs, and nothing more. Please answer a few short questions:\n\n${tokens.link("user", await tokens.issue(db, "user", id))}\n\nThe link is personal to you and works for ${process.env.LINK_DAYS || 30} days.\n${sign}`,
+    `${hi(u.email)}\n\nWe're making sure everyone has the D365 licence their job needs, and nothing more. Please answer a few short questions:\n\n${tokens.link("user", await tokens.issue(db, "user", id))}\n\nThe link is personal to you and works for ${process.env.LINK_DAYS || 10} days.\n${sign}`,
     "invite"
   ],
   managerReview: async (db, m, u, rec) => [

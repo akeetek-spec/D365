@@ -5,10 +5,12 @@
  *                     Mail.Send, restricted to that mailbox with an application access policy).
  *   MAIL_MODE=gmail   also sends through Gmail from MAIL_SENDER, signing in with a Google App Password
  *                     (GMAIL_APP_PASSWORD), never the account's normal password.
+ *   MAIL_MODE=smtp    also sends through any SMTP server (default Microsoft 365, smtp.office365.com:587)
+ *                     from MAIL_SENDER, signing in with SMTP_PASSWORD exactly as given.
  * If sending fails, the email stays in "Emails waiting to send" with the error, so nothing is lost.
  */
 const mode = () =>
-  ["graph", "gmail"].includes(process.env.MAIL_MODE) ? process.env.MAIL_MODE : "outbox";
+  ["graph", "gmail", "smtp"].includes(process.env.MAIL_MODE) ? process.env.MAIL_MODE : "outbox";
 
 let cred = null;
 async function graphSend(to, subject, body) {
@@ -44,19 +46,22 @@ async function graphSend(to, subject, body) {
 let transport = null;
 async function gmailSend(to, subject, body) {
   const nodemailer = require("nodemailer");
+  const smtp = mode() === "smtp";
   transport =
     transport ||
     nodemailer.createTransport({
-      // smtp.gmail.com unless SMTP_HOST is set (another provider, or a test server)
-      host: process.env.SMTP_HOST || "smtp.gmail.com",
-      port: Number(process.env.SMTP_PORT || 465),
-      secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE === "true" : true,
+      // gmail: smtp.gmail.com:465. smtp: Microsoft 365 on 587 (STARTTLS). SMTP_HOST/PORT/SECURE override.
+      host: process.env.SMTP_HOST || (smtp ? "smtp.office365.com" : "smtp.gmail.com"),
+      port: Number(process.env.SMTP_PORT || (smtp ? 587 : 465)),
+      secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE === "true" : !smtp,
       pool: true, // one connection reused for a batch of invites
       maxConnections: 1,
       auth: {
         user: process.env.MAIL_SENDER,
-        // keep only the 16 letters (Google shows the code with spaces between groups)
-        pass: String(process.env.GMAIL_APP_PASSWORD || "").replace(/[^A-Za-z]/g, "")
+        // gmail: keep only the 16 letters (Google shows the code with spaces between groups)
+        pass: smtp
+          ? process.env.SMTP_PASSWORD
+          : String(process.env.GMAIL_APP_PASSWORD || "").replace(/[^A-Za-z]/g, "")
       }
     });
   await transport.sendMail({
@@ -88,7 +93,7 @@ async function queue(db, to, subject, body, kind) {
       Object.assign(rec, {
         status: "sent",
         sentAt: new Date().toISOString(),
-        body: `(sent by ${mode() === "graph" ? "Microsoft 365" : "Gmail"})`
+        body: `(sent by ${{ graph: "Microsoft 365", smtp: "SMTP" }[mode()] || "Gmail"})`
       });
     } catch (e) {
       rec.error = e.message;

@@ -69,5 +69,5 @@ env:
 
   # How long personal links work, in days.
   - variable: LINK_DAYS
-    value: "30"
+    value: "10"
     availability: [RUNTIME]

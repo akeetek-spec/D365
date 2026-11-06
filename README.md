@@ -130,7 +130,7 @@ web/                     front end (static files, no build step)
 api/                     Azure Functions (Node 20)
   src/lib/handler.js     every /api endpoint and the approval workflow
   src/lib/store.js       Azure Table Storage (one table per collection)
-  src/lib/tokens.js      personal links (only SHA-256 hashes are stored; 30-day expiry)
+  src/lib/tokens.js      personal links (only SHA-256 hashes are stored; 10-day expiry)
   src/lib/mail.js        email: outbox, plus Microsoft Graph when MAIL_MODE=graph
   scripts/import-roster.js   load people and send invites
   test/flow.test.js      end-to-end workflow test (npm test)
@@ -162,7 +162,7 @@ The alternative to Firebase (about 2 days of technical work).
    | `ROLE_ITDIRECTOR` / `ROLE_ITADMIN` / `ROLE_LEADERSHIP`                     | comma-separated email addresses                                        |
    | `MAIL_MODE`                                                                | `outbox` (IT sends from the dashboard) or `graph` (sent automatically) |
    | `MAIL_SENDER`, `GRAPH_TENANT_ID`, `GRAPH_CLIENT_ID`, `GRAPH_CLIENT_SECRET` | from step 3, when `MAIL_MODE=graph`                                    |
-   | `LINK_DAYS`                                                                | how long personal links work, default `30`                             |
+   | `LINK_DAYS`                                                                | how long personal links work, default `10`                             |
 
 5. **Deploy**: push this folder to a GitHub repo, add the Static Web App's deployment token as the secret `AZURE_STATIC_WEB_APPS_API_TOKEN`. The workflow runs the tests, then deploys.
 6. **Load people and invite them**: sign in at `/admin` as the IT Director and click **Invite everyone not invited yet**. Or from your machine, with the same settings in your environment:
