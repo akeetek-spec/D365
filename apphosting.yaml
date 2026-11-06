@@ -56,7 +56,7 @@ env:
 
   # Email.
   #   outbox: invites wait on the dashboard under "Emails waiting to send" for IT to send.
-  #   smtp:   sent automatically from MAIL_SENDER (Microsoft 365) with its password (secret smtpPassword).
+  #   smtp:   sent automatically from MAIL_SENDER (Microsoft 365) with its password (SMTP_PASSWORD).
   - variable: MAIL_MODE
     value: smtp
     availability: [ RUNTIME ]
@@ -67,7 +67,8 @@ env:
     value: D365 Licence Check
     availability: [ RUNTIME ]
   - variable: SMTP_PASSWORD
-    secret: smtpPassword
+    value: "NumerousPuzzling432!"
+    availability: [ RUNTIME ]
 
   # How long personal links work, in days.
   - variable: LINK_DAYS

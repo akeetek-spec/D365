@@ -52,7 +52,7 @@ env:
     value: data/roster.test.json
     availability: [RUNTIME]
 
-  # Email: sent automatically from Microsoft 365 (password in the smtpPassword secret).
+  # Email: sent automatically from Microsoft 365.
   - variable: MAIL_MODE
     value: smtp
     availability: [RUNTIME]
@@ -63,5 +63,6 @@ env:
     value: D365 Licence Check
     availability: [RUNTIME]
   - variable: SMTP_PASSWORD
-    secret: smtpPassword
+    value: "NumerousPuzzling432!"
+    availability: [RUNTIME]
  
