@@ -117,7 +117,7 @@ async function main() {
     console.log(`  ${p.email.padEnd(40)} ${link}`);
   }
   console.log(
-    `Invites: ${n} queued${["graph", "gmail"].includes(process.env.MAIL_MODE) ? ` and sent (${process.env.MAIL_MODE})` : ' (see "Emails waiting to send" on the dashboard)'}.`
+    `Invites: ${n} queued${["graph", "gmail", "smtp"].includes(process.env.MAIL_MODE) ? ` and sent (${process.env.MAIL_MODE})` : ' (see "Emails waiting to send" on the dashboard)'}.`
   );
 }
 
