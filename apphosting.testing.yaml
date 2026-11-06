@@ -61,3 +61,4 @@ env:
     availability: [RUNTIME]
   - variable: SMTP_PASSWORD
     secret: smtpPassword
+ 
