@@ -116,7 +116,7 @@ function passwordLoginPage(back, msg = "", email = "", forgot = true) {
     "Sign in",
     `<form method="post" action="/.auth/login/aad"><h2>Sign in to the dashboard</h2>
 ${msg ? `<p class="err">${esc(msg)}</p>` : ""}
-<label class="f" for="email">Email</label><input type="email" id="email" name="email" value="${esc(email)}" autocomplete="username" required>
+<label class="f" for="email">Username</label><input type="text" id="email" name="email" value="${esc(email)}" placeholder="name@championchair.com" autocomplete="username" autocapitalize="none" required>
 <label class="f" for="password">Password</label><input type="password" id="password" name="password" autocomplete="current-password" required>
 <input type="hidden" name="back" value="${esc(back)}"><button class="btn" type="submit">Sign in</button>
 ${forgot ? '<div class="links"><a href="/.auth/reset">Forgot password?</a></div>' : ""}</form>`
@@ -337,7 +337,7 @@ async function handleAuth(req, url, readBody) {
         .toLowerCase();
       const back = safeBack(form.get("back"));
       if (!email || !form.get("password"))
-        return html(200, passwordLoginPage(back, "Enter your email and password.", email, !fixed));
+        return html(200, passwordLoginPage(back, "Enter your username and password.", email, !fixed));
       let who;
       try {
         who = fixed
