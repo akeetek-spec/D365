@@ -60,7 +60,7 @@ async function gmailSend(to, subject, body) {
         user: process.env.MAIL_SENDER,
         // gmail: keep only the 16 letters (Google shows the code with spaces between groups)
         pass: smtp
-          ? process.env.SMTP_PASSWORD
+          ? String(process.env.SMTP_PASSWORD || "").trim() // a secret saved with a trailing newline still works
           : String(process.env.GMAIL_APP_PASSWORD || "").replace(/[^A-Za-z]/g, "")
       }
     });
