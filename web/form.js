@@ -57,13 +57,6 @@
     ["no", "No, I don't need it"]
   ];
   const NEED_TXT = { yes: "needed", unsure: "not sure", no: "not needed" };
-  const FREQ = [
-    ["daily", "Every day"],
-    ["weekly", "Every week"],
-    ["monthly", "Every month"],
-    ["rarely", "A few times a year"]
-  ];
-  const FREQ_TXT = Object.fromEntries(FREQ);
   const USE_TXT = { weekly: "regularly", rarely: "rarely", never: "not at all" };
 
   // The personal token arrives in the link's fragment (#t=...), which browsers never send to servers or logs.
@@ -93,13 +86,13 @@
     submitted = false;
   const need = {},
     tasks = {},
-    other = {},
-    freq = {};
+    other = {};
   let steps = [],
     cur = 0;
 
   const val = n => (document.querySelector(`input[name="${n}"]:checked`) || {}).value || "";
-  const use = () => val("use");
+  // The "Do you use D365?" question was removed: everyone invited is treated as a regular user.
+  const use = () => "weekly";
   const taskName = (k, id) => (TASKS[k].find(t => t[1] === id) || [id])[0];
   function buildSteps() {
     steps = [{ id: "you", label: "You" }];
@@ -108,8 +101,7 @@
   }
   function modDone(k) {
     return (
-      need[k] === "no" ||
-      (need[k] && ((tasks[k] || new Set()).size || (other[k] || "").trim()) && freq[k])
+      need[k] === "no" || (need[k] && ((tasks[k] || new Set()).size || (other[k] || "").trim()))
     );
   }
   function youDone() {
@@ -156,16 +148,12 @@
         }
         const t = [...(tasks[k] || [])].map(id => taskName(k, id));
         if ((other[k] || "").trim()) t.push("Other: " + other[k].trim());
-        lines.push(
-          `${licName(k)}: ${NEED_TXT[need[k]]}, ${FREQ_TXT[freq[k]] ? FREQ_TXT[freq[k]].toLowerCase() : "frequency not given"}. Tasks: ${t.join("; ") || "none ticked"}.`
-        );
+        lines.push(`${licName(k)}: ${NEED_TXT[need[k]]}. Tasks: ${t.join("; ") || "none ticked"}.`);
       });
     if (u !== "never" && (have.length || keepAct))
       lines.push(
         `Kept as is: ${have.length ? have.map(licName).join(", ") : "Operations – Activity"}.`
       );
-    const wrong = $("wrongText").value.trim();
-    if (wrong) lines.push(`Details to correct: ${wrong}`);
     const note = $("notes").value.trim();
     return {
       freq: u,
@@ -244,11 +232,6 @@
         )
         .join("");
       $("otherTask").value = other[k] || "";
-      $("freqQ").textContent = `How often would you use ${licName(k)}?`;
-      $("freqOpts").innerHTML = FREQ.map(
-        ([v, l]) =>
-          `<label class="opt"><input type="radio" name="mfreq" value="${v}" ${freq[k] === v ? "checked" : ""}>${esc(l)}</label>`
-      ).join("");
     }
   }
   function renderSummary() {
@@ -263,7 +246,7 @@
       const t = [...(tasks[k] || [])].map(id => taskName(k, id));
       if ((other[k] || "").trim()) t.push(other[k].trim());
       rows.push(
-        `<div class="sumrow"><div><b>${esc(licName(k))}: ${esc(NEED_TXT[need[k]] || "not answered")}</b>${need[k] && need[k] !== "no" ? `<div class="muted">${esc(FREQ_TXT[freq[k]] || "How often? Not answered")}</div>${t.length ? `<ul>${t.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}` : ""}</div><button class="linkbtn" data-go="${i}">Edit</button></div>`
+        `<div class="sumrow"><div><b>${esc(licName(k))}: ${esc(NEED_TXT[need[k]] || "not answered")}</b>${need[k] && need[k] !== "no" ? `${t.length ? `<ul>${t.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}` : ""}</div><button class="linkbtn" data-go="${i}">Edit</button></div>`
       );
     });
     $("summary").innerHTML = rows.join("");
@@ -297,7 +280,6 @@
   function next() {
     const s = steps[cur];
     if (s.id === "you") {
-      if (!use()) return void ($("navMsg").textContent = "Tell us whether you use D365 first.");
       if (sharedAcct && use() !== "never" && !val("device"))
         return void ($("navMsg").textContent = "Tell us where the shared login is used.");
     }
@@ -308,8 +290,6 @@
       if (need[k] !== "no" && !((tasks[k] || new Set()).size || (other[k] || "").trim()))
         return void ($("navMsg").textContent =
           "Tick at least one task, or describe it under Something else.");
-      if (need[k] !== "no" && !freq[k])
-        return void ($("navMsg").textContent = `Tell us how often you'd use ${licName(k)}.`);
     }
     go(cur + 1);
   }
@@ -324,17 +304,9 @@
   });
   $("nextBtn").addEventListener("click", next);
   $("backBtn").addEventListener("click", () => go(cur - 1));
-  $("wrongBtn").addEventListener("click", () => {
-    $("wrongBox").hidden = !$("wrongBox").hidden;
-    if (!$("wrongBox").hidden) $("wrongText").focus();
-  });
   $("form").addEventListener("change", e => {
     const t = e.target,
       k = steps[cur] && steps[cur].mod;
-    if (t.name === "use") {
-      buildSteps();
-      renderStepper();
-    }
     if (k && t.name === "need") {
       need[k] = t.value;
       renderMod(k);
@@ -343,7 +315,6 @@
       tasks[k] = tasks[k] || new Set();
       t.checked ? tasks[k].add(t.dataset.task) : tasks[k].delete(t.dataset.task);
     }
-    if (k && t.name === "mfreq") freq[k] = t.value;
     update();
   });
   $("form").addEventListener("input", e => {
@@ -463,10 +434,6 @@
   }
   function restore(resp) {
     if (!resp) return;
-    const el = document.querySelector(
-      `input[name="use"][value="${resp.freq === "daily" ? "weekly" : resp.freq}"]`
-    );
-    if (el) el.checked = true;
     if (resp.device) {
       const d = document.querySelector(`input[name="device"][value="${resp.device}"]`);
       if (d) d.checked = true;
@@ -487,8 +454,6 @@
       );
       if (m) {
         need[k] = Object.keys(NEED_TXT).find(x => NEED_TXT[x] === m[1]);
-        const f = FREQ.find(([, l]) => l.toLowerCase() === (m[2] || ""));
-        if (f) freq[k] = f[0];
       }
       const o = n.match(
         new RegExp(
@@ -497,11 +462,6 @@
         )
       );
       if (o) other[k] = o[1];
-    }
-    const dc = n.match(/Details to correct: ([^\n]+)/);
-    if (dc) {
-      $("wrongText").value = dc[1];
-      $("wrongBox").hidden = false;
     }
     const nt = n.match(/(?:^|\n)Note: ([\s\S]*)$/);
     $("notes").value = nt ? nt[1] : n.startsWith("Access check:") ? "" : n;

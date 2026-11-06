@@ -88,11 +88,12 @@
     "id": "nadeekak",
     "email": "nadeekak@akeetek.com",
     "current": [
-      "Finance"
+    "Finance"
     ],
     "required": [
-      "Finance",
-      "Supply Chain Management"
+    "Finance",
+    "Project Operations",
+    "Supply Chain Management"
     ],
     "jobTitle": "Test user (Finance and Supply Chain)",
     "supervisorName": "Pal",
