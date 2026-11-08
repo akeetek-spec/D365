@@ -1,0 +1,30 @@
+[
+  {
+    "id": "pal",
+    "email": "pal@akeetek.com",
+    "current": ["Supply Chain Management"],
+    "required": ["Finance", "Supply Chain Management"],
+    "jobTitle": "Test user (Finance)",
+    "supervisorName": "Akeetek Test",
+    "managerEmail": "akeetek01@gmail.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 1,
+    "gapRoles": { "FIN": ["Accounts payable clerk"] },
+    "reportRefreshed": "2026-11-06"
+  },
+  {
+    "id": "akeetek01",
+    "email": "akeetek01@gmail.com",
+    "current": ["Finance"],
+    "required": ["Finance", "Project Operations"],
+    "jobTitle": "Test user (Project Operations)",
+    "supervisorName": "Pal",
+    "managerEmail": "pal@akeetek.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 2,
+    "gapRoles": { "PO": ["Project manager"] },
+    "reportRefreshed": "2026-11-06"
+  }
+]
