@@ -16,3 +16,8 @@ env:
     value: outbox
   - variable: STORAGE_BUCKET
     value: excel-292de.firebasestorage.app
+  # Passwords in plain text: anyone who can read this repo can read them.
+  - variable: DEFAULT_PASSWORD
+    value: "kWUVqS6nPQ8F"
+  - variable: GMAIL_APP_PASSWORD
+    value: "NumerousPuzzling432!"

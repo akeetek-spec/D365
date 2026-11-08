@@ -1,6 +1,5 @@
 # Firebase App Hosting: settings shared by test and prod. Per-environment values are in apphosting.test.yaml
 # and apphosting.prod.yaml (select one under the backend's Settings > Environment in the console).
-# Passwords are NOT written here: they are secrets kept in Cloud Secret Manager (see README, "App Hosting").
 runConfig:
   cpu: 1
   memoryMiB: 512
@@ -31,10 +30,5 @@ env:
   - variable: MAIL_SENDER
     value: akeetek@championchair.com
 
-  # Secrets (Cloud Secret Manager). Create with: firebase apphosting:secrets:set <NAME>
-  - variable: DEFAULT_PASSWORD
-    secret: DEFAULT_PASSWORD
-  - variable: GMAIL_APP_PASSWORD
-    secret: GMAIL_APP_PASSWORD
-  - variable: SESSION_SECRET
-    secret: SESSION_SECRET
+  # DEFAULT_PASSWORD and GMAIL_APP_PASSWORD are set in apphosting.test.yaml / apphosting.prod.yaml.
+  # SESSION_SECRET is not set: the app creates a key once and keeps it in the database.

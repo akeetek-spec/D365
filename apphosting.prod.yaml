@@ -18,3 +18,8 @@ env:
     value: outbox
   - variable: STORAGE_BUCKET
     value: REPLACE-WITH-PROD-PROJECT.firebasestorage.app
+  # Passwords in plain text: anyone who can read this repo can read them.
+  - variable: DEFAULT_PASSWORD
+    value: "501PF1dzAwGd"
+  - variable: GMAIL_APP_PASSWORD
+    value: "NumerousPuzzling432!"
