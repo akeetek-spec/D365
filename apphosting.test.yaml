@@ -1,0 +1,18 @@
+# TESTING backend (project excel-292de): two test people. Used with apphosting.yaml.
+env:
+  - variable: APP_URL
+    value: https://d365--excel-292de.us-east4.hosted.app
+  - variable: ROSTER_FILE
+    value: data/roster.test.json
+  - variable: ROLE_ITDIRECTOR
+    value: pal@akeetek.com
+  - variable: ROLE_ITADMIN
+    value: akeetek01@gmail.com
+  - variable: IT_DIRECTOR_NAME
+    value: Pal (testing)
+  - variable: IT_DIRECTOR_EMAIL
+    value: pal@akeetek.com
+  - variable: MAIL_MODE
+    value: outbox
+  - variable: STORAGE_BUCKET
+    value: excel-292de.firebasestorage.app

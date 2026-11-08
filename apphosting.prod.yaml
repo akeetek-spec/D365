@@ -1,0 +1,20 @@
+# PRODUCTION backend: the 37 people. Used with apphosting.yaml.
+# Set APP_URL to the production backend's address (shown in the console after the first rollout) and
+# STORAGE_BUCKET to the production project's bucket name (Firebase console > Storage).
+env:
+  - variable: APP_URL
+    value: https://REPLACE-WITH-PROD-ADDRESS.hosted.app
+  - variable: ROSTER_FILE
+    value: data/roster.json
+  - variable: ROLE_ITDIRECTOR
+    value: andres.santana@championchair.com
+  - variable: ROLE_ITADMIN
+    value: jennifer.derby@championchair.com
+  - variable: IT_DIRECTOR_NAME
+    value: Andres Santana
+  - variable: IT_DIRECTOR_EMAIL
+    value: andres.santana@championchair.com
+  - variable: MAIL_MODE
+    value: outbox
+  - variable: STORAGE_BUCKET
+    value: REPLACE-WITH-PROD-PROJECT.firebasestorage.app

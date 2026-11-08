@@ -1,0 +1,40 @@
+# Firebase App Hosting: settings shared by test and prod. Per-environment values are in apphosting.test.yaml
+# and apphosting.prod.yaml (select one under the backend's Settings > Environment in the console).
+# Passwords are NOT written here: they are secrets kept in Cloud Secret Manager (see README, "App Hosting").
+runConfig:
+  cpu: 1
+  memoryMiB: 512
+  maxInstances: 5
+  concurrency: 80
+
+scripts:
+  runCommand: node local.js
+
+env:
+  # local.js is the web server: it serves frontend/ and answers /api/* and /.auth/*
+  - variable: HOST
+    value: 0.0.0.0
+  - variable: STORE
+    value: firestore
+  - variable: SIGN_IN
+    value: env
+  - variable: MAIL_FROM_NAME
+    value: D365 Licence Check
+  - variable: LINK_DAYS
+    value: "30"
+  - variable: SMTP_HOST
+    value: smtp.office365.com
+  - variable: SMTP_PORT
+    value: "587"
+  - variable: SMTP_SECURE
+    value: "false"
+  - variable: MAIL_SENDER
+    value: akeetek@championchair.com
+
+  # Secrets (Cloud Secret Manager). Create with: firebase apphosting:secrets:set <NAME>
+  - variable: DEFAULT_PASSWORD
+    secret: DEFAULT_PASSWORD
+  - variable: GMAIL_APP_PASSWORD
+    secret: GMAIL_APP_PASSWORD
+  - variable: SESSION_SECRET
+    secret: SESSION_SECRET
