@@ -891,5 +891,143 @@
    ]
   },
   "reportRefreshed": "2026-11-06"
- }
+ },
+ {
+    "id": "pal",
+    "email": "pal@akeetek.com",
+    "current": [
+      "Supply Chain Management"
+    ],
+    "required": [
+      "Finance",
+      "Supply Chain Management"
+    ],
+    "jobTitle": "Test user (Finance)",
+    "supervisorName": "Akeetek Test",
+    "managerEmail": "akeetek01@gmail.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 38,
+    "gapRoles": {
+      "FIN": [
+        "Accounts payable clerk"
+      ]
+    },
+    "reportRefreshed": "2026-11-06"
+  },
+  {
+    "id": "akeetek01",
+    "email": "akeetek01@gmail.com",
+    "current": [
+      "Finance"
+    ],
+    "required": [
+      "Finance",
+      "Project Operations"
+    ],
+    "jobTitle": "Test user (Project Operations)",
+    "supervisorName": "Pal",
+    "managerEmail": "pal@akeetek.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 39,
+    "gapRoles": {
+      "PO": [
+        "Project manager"
+      ]
+    },
+    "reportRefreshed": "2026-11-06"
+  },
+  {
+    "id": "bhush-pal",
+    "email": "bhush.pal@gmail.com",
+    "current": [
+      "Finance"
+    ],
+    "required": [
+      "Finance",
+      "Supply Chain Management"
+    ],
+    "jobTitle": "Test user (Supply Chain)",
+    "supervisorName": "Akeetek Champion",
+    "managerEmail": "akeetek@championchair.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 40,
+    "gapRoles": {
+      "SCM": [
+        "Buyer"
+      ]
+    },
+    "reportRefreshed": "2026-11-06"
+  },
+  {
+    "id": "akeetek-cc",
+    "email": "akeetek@championchair.com",
+    "current": [
+      "Supply Chain Management"
+    ],
+    "required": [
+      "Commerce",
+      "Supply Chain Management"
+    ],
+    "jobTitle": "Test user (Commerce)",
+    "supervisorName": "Pal",
+    "managerEmail": "pal@akeetek.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 41,
+    "gapRoles": {
+      "COM": [
+        "Inventory Manager"
+      ]
+    },
+    "reportRefreshed": "2026-11-06"
+  },
+  {
+    "id": "nadeekak",
+    "email": "nadeekak@akeetek.com",
+    "current": [
+      "Project Operations"
+    ],
+    "required": [
+      "Finance",
+      "Project Operations"
+    ],
+    "jobTitle": "Test user (Finance)",
+    "supervisorName": "Akeetek Champion",
+    "managerEmail": "akeetek@championchair.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 42,
+    "gapRoles": {
+      "FIN": [
+        "Accounts payable clerk"
+      ]
+    },
+    "reportRefreshed": "2026-11-06"
+  },
+  {
+    "id": "ashok",
+    "email": "ashok@akeetek.com",
+    "current": [
+      "Finance"
+    ],
+    "required": [
+      "Finance",
+      "Project Operations"
+    ],
+    "jobTitle": "Test user (Project Operations)",
+    "supervisorName": "Nadeeka",
+    "managerEmail": "nadeekak@akeetek.com",
+    "managerEmailStatus": "roster",
+    "group": "Test",
+    "order": 44,
+    "gapRoles": {
+      "PO": [
+        "Project manager"
+      ]
+    },
+    "reportRefreshed": "2026-11-06"
+  }
 ]
