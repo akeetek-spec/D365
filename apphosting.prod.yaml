@@ -15,7 +15,7 @@ env:
   - variable: IT_DIRECTOR_EMAIL
     value: andres.santana@championchair.com
   - variable: MAIL_MODE
-    value: outbox
+    value: gmail   # "gmail" sends through the SMTP_HOST mailbox (Microsoft 365); "outbox" only queues
   - variable: STORAGE_BUCKET
     value: REPLACE-WITH-PROD-PROJECT.firebasestorage.app
   # Passwords in plain text: anyone who can read this repo can read them.
