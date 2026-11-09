@@ -3,7 +3,7 @@
 # STORAGE_BUCKET to the production project's bucket name (Firebase console > Storage).
 env:
   - variable: APP_URL
-    value: https://REPLACE-WITH-PROD-ADDRESS.hosted.app
+    value: https://d365--excel-292de.us-east4.hosted.app
   - variable: ROSTER_FILE
     value: data/roster.json
   - variable: ROLE_ITDIRECTOR
