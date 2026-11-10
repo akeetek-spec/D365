@@ -17,7 +17,7 @@ env:
   - variable: MAIL_MODE
     value: gmail   # "gmail" sends through the SMTP_HOST mailbox (Microsoft 365); "outbox" only queues
   - variable: STORAGE_BUCKET
-    value: REPLACE-WITH-PROD-PROJECT.firebasestorage.app
+    value: excel-292de.firebasestorage.app
   # Passwords in plain text: anyone who can read this repo can read them.
   - variable: DEFAULT_PASSWORD
     value: "501PF1dzAwGd"
