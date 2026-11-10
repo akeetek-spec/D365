@@ -889,6 +889,11 @@ input[type="email"] {
 .stepper li.skip .lbl {
   color: var(--muted);
 }
+.stepper li.done.cur button {
+  border-color: var(--ok);
+  box-shadow: 0 0 0 1px var(--ok);
+  background: var(--ok-soft);
+}
 .stepper li.cur button {
   border-color: var(--accent);
   box-shadow: 0 0 0 1px var(--accent);

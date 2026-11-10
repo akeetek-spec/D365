@@ -80,7 +80,8 @@
           ? F.noExtra ||
             ((F.extraApps.length > 0 || F.xNames.trim() || F.xShots.length) &&
               F.extraApps.every(k => appState(k).level))
-          : F.sent;
+          : F.sent ||
+            (!!F.resp && !!F.resp.status && !["returned", "rejected"].includes(F.resp.status));
 
   // While a request is sent back, keep the IT Director's comment in view on every tab.
   function backNote() {
@@ -174,10 +175,12 @@
     F.step = Math.min(F.step, steps.length - 1);
     const s = steps[F.step],
       u = F.u;
-    const doneN = steps.filter((x, i) => i !== F.step && stepDone(x)).length;
+    // The Review summary tab turns green once the answers are sent, even while it is the open tab.
+    const shownDone = (x, i) => stepDone(x) && (i !== F.step || x.id === "review");
+    const doneN = steps.filter((x, i) => shownDone(x, i)).length;
     $("stepper").innerHTML = `<ol>${steps
       .map((x, i) => {
-        const ok = i !== F.step && stepDone(x);
+        const ok = shownDone(x, i);
         return `<li class="${ok ? "done" : ""}${i === F.step ? " cur" : ""}"><button data-go="${i}" ${i === F.step ? 'aria-current="step"' : ""}><span class="num">${ok ? "✓" : i + 1}</span><span class="lbl">${esc(x.label)}${x.id === "app" ? "<small>Missing licence</small>" : ""}</span></button></li>`;
       })
       .join(
@@ -324,6 +327,7 @@
       });
       F.resp = r.request;
       F.sent = true;
+      render(); // turns the Review summary tab green
       $("sendMsg").innerHTML =
         `<div class="toast ok">Thank you. Your answers are with ${esc(F.director)}, IT Director. You'll hear from IT once your licence is sorted.</div>`;
     } catch (e) {
