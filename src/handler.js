@@ -57,8 +57,8 @@ const publicRequest = r =>
 const T = {
   invite: async (db, id, u) => [
     u.email,
-    "Please check your D365 licence (takes just 1 minute)",
-    `${hi(u.email)}\n\nOn behalf of ${DIRECTOR().name}, we’re reaching out to ensure you have the D365 licence your role requires. Please follow the link, it takes just a minute to complete, so we can help issue the appropriate licence.\n\n${tokens.link("user", await tokens.issue(db, "user", id))}\n\nThis link will expire shortly, so please take action.\n\nWe’ll pass your answers to your manager to approve, then the IT team will set it up.\n\nBest regards,\nTeam IT\n`,
+    "Quick action needed: Confirm your D365 license by Friday, November 13",
+    `${hi(u.email)}\n\nOn behalf of ${DIRECTOR().name}, we're reviewing D365 access to make sure everyone has the right license for their role.\n\nCould you take a minute to complete this short form by Friday, November 13?\n\n${tokens.link("user", await tokens.issue(db, "user", id))}\n\nThank you for your help!\n\nBest regards,\nIT Team\n`,
     "invite"
   ],
   directorReview: async (u, label, cost) => [
@@ -341,15 +341,13 @@ async function handle(req, { db, blobs }) {
       if (path === "/api/admin/outbox-sent") {
         const o = await docData(db.doc(`outbox/${body.id}`));
         if (!o) return reply(404, { message: "No such email." });
-        await db
-          .doc(`outbox/${body.id}`)
-          .set({
-            ...o,
-            status: "sent",
-            sentAt: new Date().toISOString(),
-            sentBy: actor,
-            body: "(removed after sending)"
-          });
+        await db.doc(`outbox/${body.id}`).set({
+          ...o,
+          status: "sent",
+          sentAt: new Date().toISOString(),
+          sentBy: actor,
+          body: "(removed after sending)"
+        });
         return reply(200, { ok: true });
       }
       if (path === "/api/admin/prices") {
@@ -364,8 +362,18 @@ async function handle(req, { db, blobs }) {
     }
     return reply(404, { message: "Not found" });
   } catch (e) {
+    console.error(`${method} ${path} failed:`, e); // shows the real cause in the App Hosting / Functions logs
+    // Screenshot storage problems get a clear message, so the cause is visible without opening the logs.
+    const storage =
+      /bucket|storage\.objects|does not have storage|Caller does not have|code: ?403|"code":403/i.test(
+        `${e && e.message}`
+      );
     return reply(500, {
-      message: "Something went wrong on our side. Please try again in a minute.",
+      message: /\/upload$/.test(path)
+        ? `Screenshot upload failed: ${String((e && (e.message || e.code)) || e).slice(0, 200)}`
+        : storage
+          ? "Screenshots can't be saved: Cloud Storage isn't set up or this server isn't allowed to use it. Ask IT to check the storage bucket and its permissions."
+          : "Something went wrong on our side. Please try again in a minute.",
       detail: process.env.DEBUG ? String(e.stack || e) : undefined
     });
   }
